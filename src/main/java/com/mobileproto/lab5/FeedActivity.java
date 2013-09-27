@@ -47,7 +47,6 @@ public class FeedActivity extends Activity {
         actionBar.addTab(searchTab);
 
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.android_dark_blue)));
-
     }
 
 
