@@ -22,14 +22,13 @@ public class FeedActivity extends Activity {
 
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String PREF_USERNAME = "username";
+    SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+    String username = pref.getString(PREF_USERNAME, null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-        String username = pref.getString(PREF_USERNAME, null);
 
         if (username == null) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);

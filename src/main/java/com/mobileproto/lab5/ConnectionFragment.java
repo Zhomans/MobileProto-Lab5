@@ -3,14 +3,11 @@ package com.mobileproto.lab5;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -38,6 +35,11 @@ import java.util.TimerTask;
  */
 public class ConnectionFragment extends Fragment {
     Timer timer;
+
+    public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String PREF_USERNAME = "username";
+    SharedPreferences pref = getActivity().getSharedPreferences(PREFS_NAME,getActivity().MODE_PRIVATE);
+    String username = pref.getString(PREF_USERNAME, null);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,11 +75,11 @@ public class ConnectionFragment extends Fragment {
                         ArrayList<FeedNotification> notes = new ArrayList<FeedNotification>();
 
                         try {
-                            String website = "http://twitterproto.herokuapp.com/tweets"; //change to be variable
-                            HttpGet all_tweets = new HttpGet(website);
-                            all_tweets.setHeader("Content-type","application/json");
+                            String website = "http://twitterproto.herokuapp.com/tweets?q=" + username; //change to be variable
+                            HttpGet all_mentions = new HttpGet(website);
+                            all_mentions.setHeader("Content-type", "application/json");
 
-                            response = client.execute(all_tweets);
+                            response = client.execute(all_mentions);
                             response.getStatusLine().getStatusCode();
                             HttpEntity entity = response.getEntity();
 
@@ -87,29 +89,29 @@ public class ConnectionFragment extends Fragment {
 
                             String line;
                             String nl = System.getProperty("line.separator");
-                            while ((line = reader.readLine())!= null){
-                                sb.append(line + nl);
-                            }
-                            result = sb.toString();
+                      while ((line = reader.readLine())!= null){
+                            sb.append(line + nl);
                         }
-                        catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");
-                        }
-                        finally{
-                            try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
-
-                        try {JSONObject jObject = new JSONObject(result);
-                            JSONArray jArray =  jObject.getJSONArray("tweets");
-                            for (int i = 0; i < jArray.length(); i++){
-                                JSONObject single_notification = jArray.getJSONObject(i);
-                                MentionNotification mention = new MentionNotification(single_notification.getString("username"),"@evansimpson",single_notification.getString("tweet")); //change to variable
-                                notes.add(mention);}
-                        }catch (JSONException e){e.printStackTrace();}
-                        return notes;
+                        result = sb.toString();
                     }
+                    catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");
+                    }
+                    finally{
+                        try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                    protected void onPostExecute(List<FeedNotification> notifications){
-                        ConnectionListAdapter connectionListAdapter = new ConnectionListAdapter(getActivity(), notifications);
-                        ListView connectionList = (ListView) v.findViewById(R.id.connectionListView);
+                    try {JSONObject jObject = new JSONObject(result);
+                        JSONArray jArray =  jObject.getJSONArray("tweets");
+                        for (int i = 0; i < jArray.length(); i++){
+                            JSONObject single_notification = jArray.getJSONObject(i);
+                            MentionNotification mention = new MentionNotification(single_notification.getString("username"),"@evansimpson",single_notification.getString("tweet")); //change to variable
+                            notes.add(mention);}
+                    }catch (JSONException e){e.printStackTrace();}
+                    return notes;
+                }
+
+            protected void onPostExecute(ArrayList<FeedNotification> notifications){
+                ConnectionListAdapter connectionListAdapter = new ConnectionListAdapter(getActivity(), notifications);
+                ListView connectionList = (ListView) v.findViewById(R.id.connectionListView);
                         connectionList.setAdapter(connectionListAdapter);
                     }
                 }.execute();

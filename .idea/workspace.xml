@@ -30,6 +30,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -66,7 +67,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -76,43 +76,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FeedFragment.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
+      <file leaf-file-name="ConnectionFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="62" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.68325794" vertical-offset="767" max-vertical-offset="1710">
+            <state line="78" column="72" selection-start="2995" selection-end="2995" vertical-scroll-proportion="0.3721973" vertical-offset="1220" max-vertical-offset="2556">
               <folding>
-                <element signature="e#1336#1346#0" expanded="true" />
-                <element signature="e#1697#4740#0" expanded="true" />
-                <element signature="e#2364#2374#0" expanded="true" />
-                <element signature="e#4729#4730#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AsyncTask.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
+      <file leaf-file-name="FeedActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.0" vertical-offset="909" max-vertical-offset="1008">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FutureTask.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/java/util/concurrent/FutureTask.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="630">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="8" selection-start="804" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="774">
-              <folding />
+            <state line="22" column="0" selection-start="592" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1782">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,7 +101,7 @@
       <file leaf-file-name="FeedItem.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="13" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="396">
+            <state line="9" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
               <folding />
             </state>
           </provider>
@@ -136,20 +117,20 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/serverTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ServerTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
-    <option name="width" value="1600" />
-    <option name="height" value="876" />
+    <option name="y" value="52" />
+    <option name="width" value="1590" />
+    <option name="height" value="848" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -178,7 +159,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,6 +229,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,8 +337,8 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
-      <option name="PREFERRED_AVD" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="PREFERRED_AVD" value="MobProto" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
       <option name="WIPE_USER_DATA" value="false" />
@@ -387,6 +368,11 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SliceManager">
+    <option name="analysisUIOptions">
+      <AnalysisUIOptions />
+    </option>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="494a74f0-92fe-45e6-81e4-c525295fde4d" name="Default" comment="" />
@@ -396,33 +382,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="52" width="1590" height="848" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287483" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.66887414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.09215956" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20785071" sideWeight="0.33112583" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20725389" sideWeight="0.6712517" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -486,6 +472,22 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="8" selection-start="804" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="2556">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1062">
@@ -542,49 +544,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="461" selection-end="461" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="882">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="8" selection-start="804" selection-end="867" vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="13" selection-start="83" selection-end="83" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+        <state line="9" column="0" selection-start="147" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.0" vertical-offset="909" max-vertical-offset="1008">
+        <state line="51" column="0" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.8252427" vertical-offset="408" max-vertical-offset="1026">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/java/util/concurrent/FutureTask.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="531" max-vertical-offset="630">
+        <state line="30" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.8252427" vertical-offset="30" max-vertical-offset="648">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="592" selection-end="844" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1782">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="62" selection-start="2972" selection-end="2972" vertical-scroll-proportion="0.68325794" vertical-offset="767" max-vertical-offset="1710">
+        <state line="42" column="0" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.21568628" vertical-offset="63" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="72" selection-start="2995" selection-end="2995" vertical-scroll-proportion="0.3721973" vertical-offset="1220" max-vertical-offset="2556">
           <folding>
-            <element signature="e#1336#1346#0" expanded="true" />
-            <element signature="e#1697#4740#0" expanded="true" />
-            <element signature="e#2364#2374#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
