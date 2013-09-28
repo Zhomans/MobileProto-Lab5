@@ -3,14 +3,11 @@ package com.mobileproto.lab5;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -39,6 +36,9 @@ import java.util.TimerTask;
 public class ConnectionFragment extends Fragment {
     Timer timer;
 
+    public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String PREF_USERNAME = "username";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,9 @@ public class ConnectionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        SharedPreferences pref = getActivity().getSharedPreferences(PREFS_NAME,getActivity().MODE_PRIVATE);
+        final String username = pref.getString(PREF_USERNAME, null);
 
         final View v = inflater.inflate(R.layout.connections_fragment, null);
         List<FeedNotification> notifications = new ArrayList<FeedNotification>();
@@ -73,11 +76,11 @@ public class ConnectionFragment extends Fragment {
                         ArrayList<FeedNotification> notes = new ArrayList<FeedNotification>();
 
                         try {
-                            String website = "http://twitterproto.herokuapp.com/tweets"; //change to be variable
-                            HttpGet all_tweets = new HttpGet(website);
-                            all_tweets.setHeader("Content-type","application/json");
+                            String website = "http://twitterproto.herokuapp.com/tweets?q=" + username; //change to be variable
+                            HttpGet all_mentions = new HttpGet(website);
+                            all_mentions.setHeader("Content-type", "application/json");
 
-                            response = client.execute(all_tweets);
+                            response = client.execute(all_mentions);
                             response.getStatusLine().getStatusCode();
                             HttpEntity entity = response.getEntity();
 
@@ -88,12 +91,11 @@ public class ConnectionFragment extends Fragment {
                             String line;
                             String nl = System.getProperty("line.separator");
                             while ((line = reader.readLine())!= null){
-                                sb.append(line + nl);
+                                    sb.append(line + nl);
                             }
                             result = sb.toString();
                         }
-                        catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");
-                        }
+                        catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");}
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
