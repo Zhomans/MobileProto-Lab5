@@ -103,13 +103,13 @@ public class ConnectionFragment extends Fragment {
                             JSONArray jArray =  jObject.getJSONArray("tweets");
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_notification = jArray.getJSONObject(i);
-                                MentionNotification mention = new MentionNotification(single_notification.getString("username"),"@evansimpson",single_notification.getString("tweet")); //change to variable
+                                MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet")); //change to variable
                                 notes.add(mention);}
                         }catch (JSONException e){e.printStackTrace();}
 
 
                         try {
-                            String website = "http://twitterproto.herokuapp.com/barackobama/followers"; //change to be variable
+                            String website = "http://twitterproto.herokuapp.com/" + username + "/followers";
                             HttpGet all_tweets = new HttpGet(website);
                             all_tweets.setHeader("Content-type","application/json");
 
@@ -136,7 +136,7 @@ public class ConnectionFragment extends Fragment {
                         try {JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("followers");
                             for (int i = 0; i < jArray.length(); i++){
-                                FollowNotification follow = new FollowNotification(jArray.getString(i),"@barackobama"); //change to variable
+                                FollowNotification follow = new FollowNotification("@" + jArray.getString(i), "@"+username); //change to variable
                                 notes.add(follow);}
                         }catch (JSONException e){e.printStackTrace();}
                         return notes;

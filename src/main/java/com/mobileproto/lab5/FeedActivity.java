@@ -31,7 +31,7 @@ public class FeedActivity extends Activity {
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
         String username = pref.getString(PREF_USERNAME, null);
 
-        if (username == null) {
+//        if (username == null) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
             alert.setTitle("Username");
@@ -64,7 +64,7 @@ public class FeedActivity extends Activity {
                         dialog.dismiss();
                 }
             });
-        }
+//        }
 
         // Define view fragments
         FeedFragment feedFragment = new FeedFragment();
