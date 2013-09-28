@@ -104,10 +104,43 @@ public class ConnectionFragment extends Fragment {
                                 MentionNotification mention = new MentionNotification(single_notification.getString("username"),"@evansimpson",single_notification.getString("tweet")); //change to variable
                                 notes.add(mention);}
                         }catch (JSONException e){e.printStackTrace();}
+
+
+                        try {
+                            String website = "http://twitterproto.herokuapp.com/barackobama/followers"; //change to be variable
+                            HttpGet all_tweets = new HttpGet(website);
+                            all_tweets.setHeader("Content-type","application/json");
+
+                            response = client.execute(all_tweets);
+                            response.getStatusLine().getStatusCode();
+                            HttpEntity entity = response.getEntity();
+
+                            inputStream = entity.getContent();
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"),8);
+                            StringBuilder sb = new StringBuilder();
+
+                            String line;
+                            String nl = System.getProperty("line.separator");
+                            while ((line = reader.readLine())!= null){
+                                sb.append(line + nl);
+                            }
+                            result = sb.toString();
+                        }
+                        catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");
+                        }
+                        finally{
+                            try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
+
+                        try {JSONObject jObject = new JSONObject(result);
+                            JSONArray jArray =  jObject.getJSONArray("followers");
+                            for (int i = 0; i < jArray.length(); i++){
+                                FollowNotification follow = new FollowNotification(jArray.getString(i),"@barackobama"); //change to variable
+                                notes.add(follow);}
+                        }catch (JSONException e){e.printStackTrace();}
                         return notes;
                     }
 
-                    protected void onPostExecute(List<FeedNotification> notifications){
+                    protected void onPostExecute(ArrayList<FeedNotification> notifications){
                         ConnectionListAdapter connectionListAdapter = new ConnectionListAdapter(getActivity(), notifications);
                         ListView connectionList = (ListView) v.findViewById(R.id.connectionListView);
                         connectionList.setAdapter(connectionListAdapter);
@@ -115,15 +148,6 @@ public class ConnectionFragment extends Fragment {
                 }.execute();
             }
         }, 0, 10000);
-
-
-//        // Create dummy data for demo
-//        List<FeedNotification> notifications = new ArrayList<FeedNotification>();
-//        MentionNotification mention = new MentionNotification("@EvanSimpson", "@TimRyan", "Hey @TimRyan");
-//        FollowNotification follow = new FollowNotification("@reyner", "@TimRyan");
-
-//        notifications.add(mention);
-        //notifications.add(follow);
 
         return v;
     }
