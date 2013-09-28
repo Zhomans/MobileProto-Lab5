@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -22,8 +23,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.net.URI;
 import java.util.ArrayList;
@@ -58,7 +61,7 @@ public class FeedFragment extends Fragment {
                     HttpClient client = new DefaultHttpClient();
                     HttpResponse response;
                     InputStream inputStream = null;
-                    String result = null;
+                    String result = "";
 
 
                     @Override
@@ -68,10 +71,10 @@ public class FeedFragment extends Fragment {
 
                     protected ArrayList<FeedItem> doInBackground(Void... voids) {
                         ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
+
                         try {
-                            URI website = new URI("twitterproto.herokuapp.com/tweets");
-                            HttpGet all_tweets = new HttpGet();
-                            all_tweets.setURI(website);
+                            String website = "http://twitterproto.herokuapp.com/tweets";
+                            HttpGet all_tweets = new HttpGet(website);
                             all_tweets.setHeader("Content-type","application/json");
 
                             response = client.execute(all_tweets);
@@ -94,7 +97,8 @@ public class FeedFragment extends Fragment {
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                        try {JSONArray jArray = new JSONArray(result);
+                        try {JSONObject jObject = new JSONObject(result);
+                            JSONArray jArray =  jObject.getJSONArray("tweets");
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_feed = jArray.getJSONObject(i);
                                 FeedItem feeditem = new FeedItem(single_feed.getString("username"),single_feed.getString("tweet"));
