@@ -38,7 +38,7 @@ import java.util.TimerTask;
  * Created by evan on 9/25/13.
  */
 public class FeedFragment extends Fragment {
-
+    Timer timer;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class FeedFragment extends Fragment {
         ListView feedList = (ListView) v.findViewById(R.id.feedList);
         feedList.setAdapter(feedListAdapter);
 
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 new AsyncTask<Void, Void, ArrayList<FeedItem>>() {
@@ -118,5 +118,11 @@ public class FeedFragment extends Fragment {
 
         return v;
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        timer.cancel();
     }
 }
