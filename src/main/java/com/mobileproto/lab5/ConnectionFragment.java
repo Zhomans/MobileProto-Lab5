@@ -1,7 +1,5 @@
 package com.mobileproto.lab5;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -30,9 +28,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by evan on 9/25/13.
- */
 public class ConnectionFragment extends Fragment {
     Timer timer;
 
@@ -53,6 +48,7 @@ public class ConnectionFragment extends Fragment {
 
         final View v = inflater.inflate(R.layout.connections_fragment, null);
         List<FeedNotification> notifications = new ArrayList<FeedNotification>();
+
         ConnectionListAdapter connectionListAdapter = new ConnectionListAdapter(getActivity(), notifications);
         ListView connectionList = (ListView) v.findViewById(R.id.connectionListView);
         connectionList.setAdapter(connectionListAdapter);
@@ -74,7 +70,7 @@ public class ConnectionFragment extends Fragment {
 
                     protected ArrayList<FeedNotification> doInBackground(Void... voids) {
                         ArrayList<FeedNotification> notes = new ArrayList<FeedNotification>();
-
+                        //db.open();
                         try {
                             String website = "http://twitterproto.herokuapp.com/tweets?q=" + username; //change to be variable
                             HttpGet all_mentions = new HttpGet(website);

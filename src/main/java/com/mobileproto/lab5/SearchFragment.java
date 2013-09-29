@@ -31,7 +31,6 @@ import java.util.List;
  * Created by evan on 9/26/13.
  */
 public class SearchFragment extends Fragment {
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

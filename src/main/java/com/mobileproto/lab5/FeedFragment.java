@@ -35,12 +35,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
- * Created by evan on 9/25/13.
- */
+
 public class FeedFragment extends Fragment {
     Timer timer;
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -97,8 +94,9 @@ public class FeedFragment extends Fragment {
                         }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
-
                         try {JSONObject jObject = new JSONObject(result);
+                            DBHandler db = new DBHandler(getActivity());
+                            db.open();
                             JSONArray jArray =  jObject.getJSONArray("tweets");
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_feed = jArray.getJSONObject(i);
