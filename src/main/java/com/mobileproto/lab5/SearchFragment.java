@@ -91,16 +91,22 @@ public class SearchFragment extends Fragment {
                             result = sb.toString();
                         }
                         catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");
+                            DBHandler db = new DBHandler(getActivity());
+                            db.open();
+                            feeds = db.getSearch(value);
                         }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                        try {JSONObject jObject = new JSONObject(result);
+                        try {
+                            if (!result.equals("")) {
+                            JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("tweets");
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_feed = jArray.getJSONObject(i);
                                 FeedItem feeditem = new FeedItem(single_feed.getString("username"),single_feed.getString("tweet"));
                                 feeds.add(feeditem);}
+                            }
                         }catch (JSONException e){e.printStackTrace();}
                         return feeds;
                     }

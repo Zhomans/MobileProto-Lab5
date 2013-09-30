@@ -66,21 +66,23 @@ public class DBHandler {
         return allFeeds;
     }
 
-    public ArrayList<MentionNotification> getSearch(String value) {
-        ArrayList<MentionNotification> mentions = new ArrayList<MentionNotification>();
+    public ArrayList<FeedItem> getSearch(String value) {
+        ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
-                allColumns, DatabaseModel.STATUS + " like '%"+value+"%'" ,null, null, null, null);
+                allColumns, DatabaseModel.STATUS + " like '%"+value+"%'" +
+                " AND " + DatabaseModel.TWEET_TYPE + " like '%feed%'"
+                ,null, null, null, null);
 
         cursor.moveToFirst();
-        MentionNotification tweet;
+        FeedItem tweet;
         while (!cursor.isAfterLast()) {
-            tweet = new MentionNotification(cursor.getString(0),cursor.getString(1),cursor.getString(2));
+            tweet = new FeedItem(cursor.getString(0),cursor.getString(2));
             cursor.moveToNext();
-            mentions.add(0,tweet);
+            feeds.add(tweet);
         }
         // Make sure to close the cursor
         cursor.close();
-        return mentions;
+        return feeds;
     }
     public ArrayList<MentionNotification> getMentions(String user) {
         ArrayList<MentionNotification> mentions = new ArrayList<MentionNotification>();
