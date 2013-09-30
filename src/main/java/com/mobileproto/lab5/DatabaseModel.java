@@ -18,7 +18,7 @@ public class DatabaseModel extends SQLiteOpenHelper {
     public static final String TWEET_TYPE = "type";
     public static final String TWEET_DATE = "date";
 
-    private static final String DATABASE_NAME = "tweets";
+    public static final String DATABASE_NAME = "tweets";
     private static final int DATABASE_VERSION = 1;
 
     // Database creation sql statement

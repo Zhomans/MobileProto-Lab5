@@ -58,7 +58,7 @@ public class DBHandler {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             FeedItem tweet = new FeedItem(cursor.getString(0), cursor.getString(2));
-            allFeeds.add(0, tweet);
+            allFeeds.add(tweet);
             cursor.moveToNext();
         }
         // Make sure to close the cursor
