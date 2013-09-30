@@ -100,9 +100,9 @@ public class FeedFragment extends Fragment {
                         try {
                             if (!result.equals("")) {
                             JSONObject jObject = new JSONObject(result);
-                            getActivity().deleteDatabase(DatabaseModel.DATABASE_NAME);
                             DBHandler db = new DBHandler(getActivity());
                             db.open();
+                            db.deleteFeeds();
                             JSONArray jArray =  jObject.getJSONArray("tweets");
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_feed = jArray.getJSONObject(i);

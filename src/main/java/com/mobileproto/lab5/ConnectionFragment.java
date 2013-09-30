@@ -30,6 +30,7 @@ import java.util.TimerTask;
 
 public class ConnectionFragment extends Fragment {
     Timer timer;
+    DBHandler db;
 
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String PREF_USERNAME = "username";
@@ -91,15 +92,25 @@ public class ConnectionFragment extends Fragment {
                             }
                             result = sb.toString();
                         }
-                        catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");}
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("Server", "Cannot Establish Connection");
+                            db = new DBHandler(getActivity());
+                            db.open();
+                            notes.addAll(db.getMentions(username));
+                        }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
                         try {JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("tweets");
+                            db = new DBHandler(getActivity());
+                            db.open();
+                            db.deleteFollowing();
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_notification = jArray.getJSONObject(i);
-                                MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet")); //change to variable
+                                MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet"));
+                                db.createEntry(single_notification.getString("username"),"@" + username, single_notification.getString("tweet"),"tweet",single_notification.getString("date"));
                                 notes.add(mention);}
                         }catch (JSONException e){e.printStackTrace();}
 
@@ -124,13 +135,22 @@ public class ConnectionFragment extends Fragment {
                             }
                             result = sb.toString();
                         }
-                        catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            Log.e("Server", "Cannot Establish Connection");
+                            db = new DBHandler(getActivity());
+                            db.open();
+                            notes.addAll(db.getFollowers(username));
+
                         }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
                         try {JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("followers");
+                            db = new DBHandler(getActivity());
+                            db.open();
+                            db.deleteFollowers();
                             for (int i = 0; i < jArray.length(); i++){
                                 FollowNotification follow = new FollowNotification("@" + jArray.getString(i), "@"+username); //change to variable
                                 notes.add(follow);}

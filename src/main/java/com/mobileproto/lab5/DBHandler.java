@@ -65,6 +65,18 @@ public class DBHandler {
         cursor.close();
         return allFeeds;
     }
+    public void deleteFeeds(){
+        database.delete(DatabaseModel.TABLE_NAME,
+                DatabaseModel.TWEET_TYPE + " like '%feed%'",null);
+    }
+    public void deleteFollowers(){
+        database.delete(DatabaseModel.TABLE_NAME,
+                DatabaseModel.TWEET_TYPE + " like '%follower%'",null);
+    }
+    public void deleteFollowing(){
+        database.delete(DatabaseModel.TABLE_NAME,
+                DatabaseModel.TWEET_TYPE + " like '%following%'",null);
+    }
 
     public ArrayList<MentionNotification> getSearch(String value) {
         ArrayList<MentionNotification> mentions = new ArrayList<MentionNotification>();
@@ -85,7 +97,7 @@ public class DBHandler {
     public ArrayList<MentionNotification> getMentions(String user) {
         ArrayList<MentionNotification> mentions = new ArrayList<MentionNotification>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
-                allColumns, DatabaseModel.TWEET_TYPE + " like '%mention%'" +" AND " + DatabaseModel.TWEETEE + " like '%"+"user"+"%'" ,null, null, null, null);
+                allColumns, DatabaseModel.TWEET_TYPE + " like '%feed%'" +" AND " + DatabaseModel.TWEETEE + " like '%"+user+"%'" ,null, null, null, null);
 
         cursor.moveToFirst();
         MentionNotification tweet;
@@ -98,8 +110,7 @@ public class DBHandler {
         cursor.close();
         return mentions;
     }
-    public ArrayList<FollowNotification> getFollowers() {
-        String user = getUser();
+    public ArrayList<FollowNotification> getFollowers(String user) {
         ArrayList<FollowNotification> follows = new ArrayList<FollowNotification>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
                 allColumns, DatabaseModel.TWEET_TYPE + " like " + "'%follow%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + user + "%'",null,null,null,null);
@@ -115,8 +126,7 @@ public class DBHandler {
         cursor.close();
         return follows;
     }
-    public ArrayList<FollowingNotification> getFollowing() {
-        String user = getUser();
+    public ArrayList<FollowingNotification> getFollowing(String user) {
         ArrayList<FollowingNotification> follows = new ArrayList<FollowingNotification>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
                 allColumns, DatabaseModel.TWEET_TYPE + " like " + "'%follow%'" +" AND " + DatabaseModel.TWEETER + " like '%" + user + "%'" ,null, null, null, null);

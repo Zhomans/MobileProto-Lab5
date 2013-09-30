@@ -75,19 +75,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FeedFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FeedFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="69" selection-start="4552" selection-end="4552" vertical-scroll-proportion="1.8329939" vertical-offset="180" max-vertical-offset="1605">
+            <state line="104" column="45" selection-start="4361" selection-end="4361" vertical-scroll-proportion="0.0" vertical-offset="1115" max-vertical-offset="1926">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBHandler.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DBHandler.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="97" selection-start="1678" selection-end="1678" vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="2025">
+            <state line="67" column="0" selection-start="2007" selection-end="2485" vertical-scroll-proportion="0.2625" vertical-offset="990" max-vertical-offset="2610">
               <folding />
             </state>
           </provider>
@@ -96,10 +96,8 @@
       <file leaf-file-name="DatabaseModel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DatabaseModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="840">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="20" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1008">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,7 +105,7 @@
       <file leaf-file-name="FeedActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="0" selection-start="3560" selection-end="3560" vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="1575">
+            <state line="93" column="0" selection-start="3560" selection-end="3560" vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="1890">
               <folding />
             </state>
           </provider>
@@ -116,7 +114,7 @@
       <file leaf-file-name="SearchFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/SearchFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="46" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="1905">
+            <state line="32" column="46" selection-start="912" selection-end="912" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="2286">
               <folding />
             </state>
           </provider>
@@ -125,7 +123,7 @@
       <file leaf-file-name="ConnectionFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="70" selection-start="6635" selection-end="6635" vertical-scroll-proportion="0.0" vertical-offset="2025" max-vertical-offset="2460">
+            <state line="142" column="65" selection-start="6793" selection-end="6793" vertical-scroll-proportion="0.0" vertical-offset="1723" max-vertical-offset="2808">
               <folding />
             </state>
           </provider>
@@ -149,18 +147,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FollowingNotification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/SearchFragment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DatabaseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
-    <option name="width" value="1537" />
-    <option name="height" value="905" />
+    <option name="y" value="24" />
+    <option name="width" value="1600" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -188,6 +185,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,15 +256,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -412,7 +409,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1537" height="905" extended-state="6" />
+    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -424,19 +421,19 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30810094" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30860928" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20336701" sideWeight="0.69189906" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20334621" sideWeight="0.69139075" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32802126" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287483" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980132" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
     </layout>
@@ -575,13 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="70" selection-start="6635" selection-end="6635" vertical-scroll-proportion="0.0" vertical-offset="1771" max-vertical-offset="2484">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="0" selection-start="3560" selection-end="3560" vertical-scroll-proportion="0.0" vertical-offset="1388" max-vertical-offset="1800">
@@ -592,22 +582,27 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DatabaseModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="10" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="207" max-vertical-offset="840">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="97" selection-start="1678" selection-end="1678" vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="2025">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="69" selection-start="4552" selection-end="4552" vertical-scroll-proportion="1.8329939" vertical-offset="180" max-vertical-offset="1605">
+        <state line="104" column="45" selection-start="4361" selection-end="4361" vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ConnectionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="65" selection-start="6793" selection-end="6793" vertical-scroll-proportion="0.0" vertical-offset="1723" max-vertical-offset="2808">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2007" selection-end="2485" vertical-scroll-proportion="0.2625" vertical-offset="990" max-vertical-offset="2610">
           <folding />
         </state>
       </provider>
