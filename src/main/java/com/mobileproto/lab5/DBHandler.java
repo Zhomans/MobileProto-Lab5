@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -71,7 +72,7 @@ public class DBHandler {
     }
     public void deleteFollowers(){
         database.delete(DatabaseModel.TABLE_NAME,
-                DatabaseModel.TWEET_TYPE + " like '%follower%'",null);
+                DatabaseModel.TWEET_TYPE + " like '%follower%'", null);
     }
     public void deleteFollowing(){
         database.delete(DatabaseModel.TABLE_NAME,
@@ -143,5 +144,17 @@ public class DBHandler {
         // Make sure to close the cursor
         cursor.close();
         return follows;
+    }
+
+    void mergeFeeds(ArrayList<FeedItem> feeds){
+        Log.v("Method","Not implemented");
+    }
+
+    void mergeFollowing(ArrayList<FollowingNotification> following){
+        Log.v("Method","Not implemented");
+    }
+
+    void mergeFollowers(ArrayList <FollowNotification> followers){
+        Log.v("Method","Not implemented");
     }
 }
