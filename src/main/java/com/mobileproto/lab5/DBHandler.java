@@ -70,9 +70,9 @@ public class DBHandler {
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%feed%'",null);
     }
-    public void deleteFollowers(){
+    public void deleteFollowers(String username){
         database.delete(DatabaseModel.TABLE_NAME,
-                DatabaseModel.TWEET_TYPE + " like '%follower%'", null);
+                DatabaseModel.TWEET_TYPE + " like '%follower%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + username + "%'", null);
     }
     public void deleteFollowing(){
         database.delete(DatabaseModel.TABLE_NAME,
@@ -100,7 +100,7 @@ public class DBHandler {
     public ArrayList<MentionNotification> getMentions(String user) {
         ArrayList<MentionNotification> mentions = new ArrayList<MentionNotification>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
-                allColumns, DatabaseModel.TWEET_TYPE + " like '%feed%'" +" AND " + DatabaseModel.TWEETEE + " like '%"+user+"%'" ,null, null, null, null);
+                allColumns, DatabaseModel.TWEET_TYPE + " like '%feed%'" +" AND " + DatabaseModel.STATUS + " like '%"+user+"%'" ,null, null, null, null);
 
         cursor.moveToFirst();
         MentionNotification tweet;

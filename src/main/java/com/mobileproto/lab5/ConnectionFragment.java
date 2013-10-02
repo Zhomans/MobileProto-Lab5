@@ -102,16 +102,19 @@ public class ConnectionFragment extends Fragment {
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                        try {JSONObject jObject = new JSONObject(result);
+                        try {
+                            if (!result.equals("")) {
+                            JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("tweets");
                             db = new DBHandler(getActivity());
                             db.open();
-                            db.deleteFollowing();
+                            db.deleteMentions(username);
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_notification = jArray.getJSONObject(i);
                                 MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet"));
                                 db.createEntry(single_notification.getString("username"),"@" + username, single_notification.getString("tweet"),"tweet",single_notification.getString("date"));
                                 notes.add(mention);}
+                            }
                         }catch (JSONException e){e.printStackTrace();}
 
 
@@ -146,14 +149,17 @@ public class ConnectionFragment extends Fragment {
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                        try {JSONObject jObject = new JSONObject(result);
+                        try {
+                            if (!result.equals("")) {
+                            JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("followers");
                             db = new DBHandler(getActivity());
                             db.open();
-                            db.deleteFollowers();
+                            db.deleteFollowers(username);
                             for (int i = 0; i < jArray.length(); i++){
                                 FollowNotification follow = new FollowNotification("@" + jArray.getString(i), "@"+username); //change to variable
                                 notes.add(follow);}
+                            }
                         }catch (JSONException e){e.printStackTrace();}
                         return notes;
                     }
