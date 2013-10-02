@@ -72,7 +72,7 @@ public class DBHandler {
     }
     public void deleteMentions(String value){
         database.delete(DatabaseModel.TABLE_NAME,
-                DatabaseModel.STATUS + " like '%"+value+"%'",null);
+                DatabaseModel.STATUS + " like '%"+value+"%'" ,null);
     }
     public void deleteFollowers(){
         database.delete(DatabaseModel.TABLE_NAME,
