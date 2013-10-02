@@ -71,7 +71,6 @@ public class ConnectionFragment extends Fragment {
 
                     protected ArrayList<FeedNotification> doInBackground(Void... voids) {
                         ArrayList<FeedNotification> notes = new ArrayList<FeedNotification>();
-                        //db.open();
                         try {
                             String website = "http://twitterproto.herokuapp.com/tweets?q=" + username; //change to be variable
                             HttpGet all_mentions = new HttpGet(website);
@@ -117,7 +116,6 @@ public class ConnectionFragment extends Fragment {
                             }
                         }catch (JSONException e){e.printStackTrace();}
 
-
                         try {
                             String website = "http://twitterproto.herokuapp.com/" + username + "/followers";
                             HttpGet all_tweets = new HttpGet(website);
@@ -141,8 +139,6 @@ public class ConnectionFragment extends Fragment {
                         catch (Exception e) {
                             e.printStackTrace();
                             Log.e("Server", "Cannot Establish Connection");
-                            db = new DBHandler(getActivity());
-                            db.open();
                             notes.addAll(db.getFollowers(username));
 
                         }

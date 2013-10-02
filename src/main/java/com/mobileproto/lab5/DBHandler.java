@@ -66,14 +66,22 @@ public class DBHandler {
         cursor.close();
         return allFeeds;
     }
+
     public void deleteFeeds(){
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%feed%'",null);
     }
+
+    public void deleteMentions(String value){
+        database.delete(DatabaseModel.TABLE_NAME,
+                DatabaseModel.STATUS + " like '%"+value+"%'" ,null);
+    }
+
     public void deleteFollowers(String username){
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%follower%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + username + "%'", null);
     }
+
     public void deleteFollowing(){
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%following%'",null);
