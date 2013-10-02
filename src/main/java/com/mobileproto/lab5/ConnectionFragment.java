@@ -72,7 +72,7 @@ public class ConnectionFragment extends Fragment {
                     protected ArrayList<FeedNotification> doInBackground(Void... voids) {
                         ArrayList<FeedNotification> notes = new ArrayList<FeedNotification>();
                         try {
-                            String website = "http://twitterproto.herokuapp.com/tweets?q=" + username; //change to be variable
+                            String website = "http://twitterproto.herokuapp.com/tweets?q=" + username;
                             HttpGet all_mentions = new HttpGet(website);
                             all_mentions.setHeader("Content-type", "application/json");
 
@@ -94,9 +94,9 @@ public class ConnectionFragment extends Fragment {
                         catch (Exception e) {
                             e.printStackTrace();
                             Log.e("Server", "Cannot Establish Connection");
-                            db = new DBHandler(getActivity());
-                            db.open();
-                            notes.addAll(db.getMentions(username));
+//                            db = new DBHandler(getActivity());
+//                            db.open();
+//                            notes.addAll(db.getMentions(username));
                         }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
@@ -110,9 +110,10 @@ public class ConnectionFragment extends Fragment {
                             db.deleteMentions(username);
                             for (int i = 0; i < jArray.length(); i++){
                                 JSONObject single_notification = jArray.getJSONObject(i);
-                                MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet"));
-                                db.createEntry(single_notification.getString("username"),"@" + username, single_notification.getString("tweet"),"tweet",single_notification.getString("date"));
-                                notes.add(mention);}
+                                //MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet"));
+                                db.createEntry(single_notification.getString("username"),"@" + username, single_notification.getString("tweet"),"feed",single_notification.getString("date"));
+                                //notes.add(mention);
+                                }
                             }
                         }catch (JSONException e){e.printStackTrace();}
 
@@ -139,8 +140,7 @@ public class ConnectionFragment extends Fragment {
                         catch (Exception e) {
                             e.printStackTrace();
                             Log.e("Server", "Cannot Establish Connection");
-                            notes.addAll(db.getFollowers(username));
-
+                            //notes.addAll(db.getFollowers(username));
                         }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
@@ -148,15 +148,21 @@ public class ConnectionFragment extends Fragment {
                         try {
                             if (!result.equals("")) {
                             JSONObject jObject = new JSONObject(result);
-                            JSONArray jArray =  jObject.getJSONArray("followers");
+                            JSONArray jArray =  jObject.getJSONArray("detail");
                             db = new DBHandler(getActivity());
                             db.open();
                             db.deleteFollowers(username);
                             for (int i = 0; i < jArray.length(); i++){
-                                FollowNotification follow = new FollowNotification("@" + jArray.getString(i), "@"+username); //change to variable
-                                notes.add(follow);}
+                                JSONObject single_follow = jArray.getJSONObject(i);
+//                                FollowNotification follow = new FollowNotification("@" + single_follow.getString("username"), "@"+username);
+                                db.createEntry(single_follow.getString("username"),"@" + username, "","follow",single_follow.getString("date"));
+//                                notes.add(follow);
+                            }
                             }
                         }catch (JSONException e){e.printStackTrace();}
+                        db = new DBHandler(getActivity());
+                        db.open();
+                        notes.addAll(db.getConnections(username));
                         return notes;
                     }
 

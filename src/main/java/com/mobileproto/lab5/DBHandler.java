@@ -79,20 +79,18 @@ public class DBHandler {
 
     public void deleteFollowers(String username){
         database.delete(DatabaseModel.TABLE_NAME,
-                DatabaseModel.TWEET_TYPE + " like '%follower%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + username + "%'", null);
+                DatabaseModel.TWEET_TYPE + " like '%follow%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + username + "%'", null);
     }
 
     public void deleteFollowing(){
         database.delete(DatabaseModel.TABLE_NAME,
-                DatabaseModel.TWEET_TYPE + " like '%following%'",null);
+                DatabaseModel.TWEET_TYPE + " like '%follow%'",null);
     }
 
     public ArrayList<FeedItem> getSearch(String value) {
         ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
-                allColumns, DatabaseModel.STATUS + " like '%"+value+"%'" +
-                " AND " + DatabaseModel.TWEET_TYPE + " like '%feed%'"
-                ,null, null, null, null);
+                allColumns, DatabaseModel.STATUS + " like '%"+value+"%'" + " AND " + DatabaseModel.TWEET_TYPE + " like '%feed%'",null, null, null, null);
 
         cursor.moveToFirst();
         FeedItem tweet;
@@ -108,7 +106,7 @@ public class DBHandler {
     public ArrayList<MentionNotification> getMentions(String user) {
         ArrayList<MentionNotification> mentions = new ArrayList<MentionNotification>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
-                allColumns, DatabaseModel.TWEET_TYPE + " like '%feed%'" +" AND " + DatabaseModel.STATUS + " like '%"+user+"%'" ,null, null, null, null);
+                allColumns, DatabaseModel.TWEET_TYPE + " like '%feed%'" + " AND " + DatabaseModel.STATUS + " like '%"+user+"%'" ,null, null, null, null);
 
         cursor.moveToFirst();
         MentionNotification tweet;
@@ -152,6 +150,36 @@ public class DBHandler {
         // Make sure to close the cursor
         cursor.close();
         return follows;
+    }
+
+    public ArrayList<FeedNotification> getConnections(String user) {
+        ArrayList<FeedNotification> connections = new ArrayList<FeedNotification>();
+//        Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
+//                allColumns, DatabaseModel.TWEET_TYPE + " like '%feed%'" + " AND " + DatabaseModel.STATUS + " like '%"+user+"%'" + " OR " +
+//                DatabaseModel.TWEET_TYPE + " like " + "'%follow%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + user + "%'"
+//                ,null, null, null, null);
+        Cursor cursor = database.rawQuery("SELECT tblConn.* FROM (SELECT * FROM " + DatabaseModel.TABLE_NAME + " WHERE "
+                + DatabaseModel.TWEET_TYPE + " like '%feed%'" + " AND " + DatabaseModel.STATUS + " like '%"+user+"%'"
+                + " UNION SELECT * FROM " + DatabaseModel.TABLE_NAME + " WHERE "
+                + DatabaseModel.TWEET_TYPE + " like " + "'%follow%'" +" AND " + DatabaseModel.TWEETEE + " like " + "'%" + user + "%')"
+                + " AS tblConn ORDER BY tblConn." + DatabaseModel.TWEET_DATE, null);
+
+        cursor.moveToFirst();
+        FeedNotification tweet;
+        while (!cursor.isAfterLast()) {
+            if (cursor.getString(3).equals("feed")) {
+                tweet = new MentionNotification(cursor.getString(0),cursor.getString(1),cursor.getString(2));
+                cursor.moveToNext();
+                connections.add(0,tweet);
+            } else {
+                tweet = new FollowNotification(cursor.getString(0),cursor.getString(1));
+                connections.add(0, tweet);
+                cursor.moveToNext();
+            }
+        }
+        // Make sure to close the cursor
+        cursor.close();
+        return connections;
     }
 
     void mergeFeeds(ArrayList<FeedItem> feeds){
