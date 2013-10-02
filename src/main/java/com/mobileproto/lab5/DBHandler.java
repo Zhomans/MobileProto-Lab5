@@ -70,6 +70,10 @@ public class DBHandler {
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%feed%'",null);
     }
+    public void deleteMentions(String value){
+        database.delete(DatabaseModel.TABLE_NAME,
+                DatabaseModel.STATUS + " like '%"+value+"%'",null);
+    }
     public void deleteFollowers(){
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%follower%'", null);

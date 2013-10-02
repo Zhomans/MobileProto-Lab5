@@ -71,7 +71,6 @@ public class ConnectionFragment extends Fragment {
 
                     protected ArrayList<FeedNotification> doInBackground(Void... voids) {
                         ArrayList<FeedNotification> notes = new ArrayList<FeedNotification>();
-                        //db.open();
                         try {
                             String website = "http://twitterproto.herokuapp.com/tweets?q=" + username; //change to be variable
                             HttpGet all_mentions = new HttpGet(website);
@@ -102,7 +101,9 @@ public class ConnectionFragment extends Fragment {
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                        try {JSONObject jObject = new JSONObject(result);
+                        try {
+                            if (!result.equals("")){
+                            JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("tweets");
                             db = new DBHandler(getActivity());
                             db.open();
@@ -112,7 +113,7 @@ public class ConnectionFragment extends Fragment {
                                 MentionNotification mention = new MentionNotification(single_notification.getString("username"), "@" + username,single_notification.getString("tweet"));
                                 db.createEntry(single_notification.getString("username"),"@" + username, single_notification.getString("tweet"),"tweet",single_notification.getString("date"));
                                 notes.add(mention);}
-                        }catch (JSONException e){e.printStackTrace();}
+                        }}catch (JSONException e){e.printStackTrace();}
 
 
                         try {
@@ -138,15 +139,15 @@ public class ConnectionFragment extends Fragment {
                         catch (Exception e) {
                             e.printStackTrace();
                             Log.e("Server", "Cannot Establish Connection");
-                            db = new DBHandler(getActivity());
-                            db.open();
                             notes.addAll(db.getFollowers(username));
 
                         }
                         finally{
                             try{if(inputStream != null)inputStream.close();}catch(Exception squish){}}
 
-                        try {JSONObject jObject = new JSONObject(result);
+                        try {
+                            if (!result.equals("")){
+                            JSONObject jObject = new JSONObject(result);
                             JSONArray jArray =  jObject.getJSONArray("followers");
                             db = new DBHandler(getActivity());
                             db.open();
@@ -154,7 +155,7 @@ public class ConnectionFragment extends Fragment {
                             for (int i = 0; i < jArray.length(); i++){
                                 FollowNotification follow = new FollowNotification("@" + jArray.getString(i), "@"+username); //change to variable
                                 notes.add(follow);}
-                        }catch (JSONException e){e.printStackTrace();}
+                        }}catch (JSONException e){e.printStackTrace();}
                         return notes;
                     }
 
