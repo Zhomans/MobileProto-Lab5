@@ -45,7 +45,7 @@ public class ProfileActivity extends Activity {
 
         final String user = intent.getStringExtra("user");
 
-        AutoResizeTextView userText= (AutoResizeTextView) findViewById(R.id.profile_name);
+        TextView userText= (TextView) findViewById(R.id.profile_name);
         userText.setText(user);
 
         db = new DBHandler(this);

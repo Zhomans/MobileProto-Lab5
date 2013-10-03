@@ -89,7 +89,7 @@ public class DBHandler {
     public ArrayList<FeedItem> getUserFeeds(String user){
         ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
-                allColumns, DatabaseModel.TWEETER + " like '%"+user+"%'" + " AND " + DatabaseModel.TWEET_TYPE + " like '%feed%'",null, null, DatabaseModel.TWEET_DATE , null);
+                allColumns, DatabaseModel.TWEETER + " like '%"+user+"%'" + " AND " + DatabaseModel.TWEET_TYPE + " like '%feed%'",null, null,null, null);
 
         cursor.moveToFirst();
         FeedItem tweet;

@@ -130,8 +130,11 @@ public class FeedFragment extends Fragment {
         feedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                FeedItem thisFeed = all_feeds.get(i);
-                Intent in = new Intent(view.getContext(), ProfileActivity.class);
+                DBHandler db = new DBHandler(getActivity());
+                db.open();
+
+                FeedItem thisFeed = db.getallFeeds().get(i);
+                Intent in = new Intent(getActivity().getApplicationContext(), ProfileActivity.class);
                 String noteTitle = thisFeed.userName;
                 in.putExtra("user", noteTitle);
                 startActivity(in);
