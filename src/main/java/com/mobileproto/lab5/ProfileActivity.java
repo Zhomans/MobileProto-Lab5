@@ -71,8 +71,6 @@ public class ProfileActivity extends Activity {
                     }
 
                     protected Void doInBackground(Void... voids) {
-                        ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
-
                         try {
                             String website = "http://twitterproto.herokuapp.com/"+ primeUser + "/follow";
                             HttpPost all_tweets = new HttpPost(website);
@@ -87,13 +85,12 @@ public class ProfileActivity extends Activity {
                             response = client.execute(all_tweets);
                         }
                         catch (Exception e) {e.printStackTrace(); Log.e("Server", "Cannot Establish Connection");}
+
                         return null;
                     }
 
-                    protected void onPostExecute(ArrayList<FeedItem> all_feeds){
-                        Toast.makeText(getApplicationContext(),"You are now following " + user,Toast.LENGTH_LONG);
-                    }
                 }.execute();
+                Toast.makeText(view.getContext(),"You are now following " + user,Toast.LENGTH_LONG).show();
             }
          });
     }

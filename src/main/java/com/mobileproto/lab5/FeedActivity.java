@@ -7,10 +7,13 @@ import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.test.AndroidTestRunner;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,7 +31,10 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -40,6 +46,7 @@ public class FeedActivity extends Activity {
 
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String PREF_USERNAME = "username";
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +54,7 @@ public class FeedActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-        String username = pref.getString(PREF_USERNAME, null);
+        username = pref.getString(PREF_USERNAME, null);
 
         if (username == null) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -125,6 +132,7 @@ public class FeedActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_tweet:
+
                 AlertDialog.Builder tweet_alert = new AlertDialog.Builder(this);
 
                 tweet_alert.setTitle("Compose Tweet");
@@ -138,46 +146,78 @@ public class FeedActivity extends Activity {
                 tweet_alert.setView(tweet_input);
                 tweet_alert.setPositiveButton("Ok", null);
                 tweet_alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // Canceled.
-                    }
+                    public void onClick(DialogInterface dialog, int whichButton) {}
                 });
                 final AlertDialog tweet_dialog = tweet_alert.create();
                 tweet_dialog.show();
                 tweet_dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Boolean wantToCloseDialog = false;
-                        Editable value = tweet_input.getText();
-                        if (!value.toString().matches("")) {
-                            SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
-                            String username = pref.getString(PREF_USERNAME, null);
+                        Thread postTweet = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                HttpClient client = new DefaultHttpClient();
+                                HttpResponse response;
+                                Boolean result = false;
+                                HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000);
+                                Editable value = tweet_input.getText();
+                                String website = "http://twitterproto.herokuapp.com/"+username+"/tweets";
+                                HttpPost post_tweet = new HttpPost(website);
+                                JSONObject json = new JSONObject();
+                                try {
+                                json.put("status",value.toString());
+                                StringEntity se = new StringEntity(json.toString());
+                                se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+                                post_tweet.setEntity(se);
+                                result = true;
+                                response = client.execute(post_tweet); // fails here
+                                tweet_dialog.dismiss();
+                                }catch(Exception e){e.printStackTrace();}
 
+                            }
+                        });
+                        postTweet.start();
+                       /* new AsyncTask<Void, Void, Void>(){
                             HttpClient client = new DefaultHttpClient();
                             HttpResponse response;
-                            String website = "http://twitterproto.herokuapp.com/"+username+"/tweets";
-                            HttpPost post_tweet = new HttpPost(website);
+                            Boolean result = false;
+                            @Override
+                            protected void onPreExecute() {
+                                HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000);
+                           }
+                            protected Void doInBackground(Void... voids){
+                                try{
+                                Editable value = tweet_input.getText();
 
-                            try{
-//                                post_tweet.setHeader("Content-type", "application/json");
-//                                post_tweet.setHeader("Accept", "application/json");
-                                JSONObject obj = new JSONObject();
-                                obj.put("status", value);
-                                post_tweet.setEntity(new StringEntity(obj.toString(), "UTF-8"));
-                                response = client.execute(post_tweet);
-                            } catch (ClientProtocolException e) {
-                                // TODO Auto-generated catch block
-                            } catch (IOException e) {
-                                // TODO Auto-generated catch block
-                            } catch (JSONException e) {
-                                // TODO Auto-generated catch block
+                                String website = "http://twitterproto.herokuapp.com/"+username+"/tweets";
+                                HttpPost post_tweet = new HttpPost(website);
+                                JSONObject json = new JSONObject();
+                                json.put("status",value.toString());
+                                StringEntity se = new StringEntity(json.toString());
+                                se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+                                post_tweet.setEntity(se);
+                                    result = true;
+                                response = client.execute(post_tweet); // fails here
+
+                                } catch (Exception e){e.printStackTrace();Log.v("Something Went wRong","somethingWentWrong");}
+                                tweet_dialog.dismiss();
+
+                               return null;
+                           }
+
+                            @Override
+                            protected void onPostExecute(Void aVoid) {
+                                super.onPostExecute(aVoid);
+                                if (result)
+                                Toast.makeText(getApplicationContext(),"You just tweeted",Toast.LENGTH_LONG).show();
+                                else
+                                    Toast.makeText(getApplicationContext(),"You just failed",Toast.LENGTH_LONG).show();
                             }
-                            wantToCloseDialog = true;
-                        }
-                        if(wantToCloseDialog)
-                            tweet_dialog.dismiss();
+                        }.execute();*/
                     }
                 });
+
+
                 break;
 
             case R.id.action_username:
