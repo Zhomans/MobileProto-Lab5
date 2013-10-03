@@ -15,7 +15,6 @@ public class DBHandler {
 
     private SQLiteDatabase database;
     private DatabaseModel model;
-    String user;
     private String[] allColumns = {DatabaseModel.TWEETER, DatabaseModel.TWEETEE, DatabaseModel.STATUS, DatabaseModel.TWEET_TYPE, DatabaseModel.TWEET_DATE};
 
     public DBHandler(Context context){
@@ -24,18 +23,6 @@ public class DBHandler {
 
     public void open(){
         database = model.getWritableDatabase();
-    }
-
-    public void close() {
-        database.close();
-    }
-
-    public void setUser(String user){
-        this.user = user;
-    }
-
-    public String getUser(){
-        return this.user;
     }
 
     public long createEntry(String fromUser, String toUser, String status, String type, String date){

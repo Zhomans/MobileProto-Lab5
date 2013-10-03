@@ -117,7 +117,6 @@ public class SearchFragment extends Fragment {
                         feedList.setAdapter(feedListAdapter);
                     }
                 }.execute();
-
             }
         });
 
