@@ -2,6 +2,7 @@ package com.mobileproto.lab5;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
@@ -38,6 +40,7 @@ import java.util.TimerTask;
 
 public class FeedFragment extends Fragment {
     Timer timer;
+    List <FeedItem> all_feeds;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -45,7 +48,7 @@ public class FeedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        List <FeedItem> all_feeds = new ArrayList<FeedItem>();
+        all_feeds = new ArrayList<FeedItem>();
         final View v = inflater.inflate(R.layout.feed_fragment, null);
 
         FeedListAdapter feedListAdapter = new FeedListAdapter(getActivity(), all_feeds);
@@ -124,8 +127,17 @@ public class FeedFragment extends Fragment {
             }
         }, 0, 10000);
 
+        feedList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                FeedItem thisFeed = all_feeds.get(i);
+                Intent in = new Intent(view.getContext(), ProfileActivity.class);
+                String noteTitle = thisFeed.userName;
+                in.putExtra("user", noteTitle);
+                startActivity(in);
+            }
+        });
         return v;
-
     }
 
     @Override

@@ -86,7 +86,22 @@ public class DBHandler {
         database.delete(DatabaseModel.TABLE_NAME,
                 DatabaseModel.TWEET_TYPE + " like '%follow%'",null);
     }
+    public ArrayList<FeedItem> getUserFeeds(String user){
+        ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
+        Cursor cursor = database.query(DatabaseModel.TABLE_NAME,
+                allColumns, DatabaseModel.TWEETER + " like '%"+user+"%'" + " AND " + DatabaseModel.TWEET_TYPE + " like '%feed%'",null, null, DatabaseModel.TWEET_DATE , null);
 
+        cursor.moveToFirst();
+        FeedItem tweet;
+        while (!cursor.isAfterLast()) {
+            tweet = new FeedItem(cursor.getString(0),cursor.getString(2));
+            cursor.moveToNext();
+            feeds.add(tweet);
+        }
+        // Make sure to close the cursor
+        cursor.close();
+        return feeds;
+    }
     public ArrayList<FeedItem> getSearch(String value) {
         ArrayList<FeedItem> feeds = new ArrayList<FeedItem>();
         Cursor cursor = database.query(DatabaseModel.TABLE_NAME,

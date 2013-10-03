@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/social_person"
+            android:layout_gravity="left|center_vertical" />
+    <AutoCompleteTextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:paddingLeft="20dp"
+            android:textSize = "30sp"
+            android:id="@+id/profile_name"
+            android:text = "holder"
+            android:layout_toRightOf="@+id/imageView"
+            android:gravity="center_vertical"
+            />
+    <ListView
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:id="@+id/feedList"
+            android:layout_below="@+id/imageView"
+            android:layout_alignParentLeft="true"/>
+
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow"
+            android:id="@+id/follow_button"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
