@@ -83,30 +83,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FeedFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="58" selection-start="5885" selection-end="5885" vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="990">
-              <folding>
-                <element signature="class#1989:5584" expanded="false" />
-                <element signature="e#5673#6239#0" expanded="true" />
-                <element signature="e#6228#6229#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="13" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="666">
-              <folding>
-                <element signature="e#560#578#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DBHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,20 +95,20 @@
       <file leaf-file-name="ProfileActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="28" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0" vertical-offset="726" max-vertical-offset="1908">
+            <state line="47" column="56" selection-start="1554" selection-end="1554" vertical-scroll-proportion="0.0" vertical-offset="683" max-vertical-offset="1908">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2026#3822#0" expanded="true" />
-                <element signature="e#3810#3811#0" expanded="true" />
+                <element signature="e#2046#3842#0" expanded="true" />
+                <element signature="e#3830#3831#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FeedActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FeedActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="0" selection-start="8438" selection-end="8438" vertical-scroll-proportion="0.48199445" vertical-offset="2724" max-vertical-offset="3474">
+            <state line="198" column="0" selection-start="8438" selection-end="8438" vertical-scroll-proportion="0.0" vertical-offset="2724" max-vertical-offset="3474">
               <folding>
                 <element signature="e#2132#2315#0" expanded="true" />
                 <element signature="e#2300#2301#0" expanded="true" />
@@ -158,24 +134,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SearchFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/SearchFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="28" selection-start="1880" selection-end="5163" vertical-scroll-proportion="0.0" vertical-offset="1481" max-vertical-offset="1944">
+            <state line="118" column="28" selection-start="1880" selection-end="5163" vertical-scroll-proportion="0.53462607" vertical-offset="1481" max-vertical-offset="1944">
               <folding>
                 <element signature="e#1626#5188#0" expanded="true" />
                 <element signature="e#5177#5178#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AutoResizeTextView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/AutoResizeTextView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="7" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.0" vertical-offset="275" max-vertical-offset="5292">
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,7 +152,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="5" selection-start="479" selection-end="479" vertical-scroll-proportion="-5.25" vertical-offset="69" max-vertical-offset="792">
+            <state line="17" column="42" selection-start="728" selection-end="728" vertical-scroll-proportion="-8.464286" vertical-offset="69" max-vertical-offset="792">
               <folding />
             </state>
           </provider>
@@ -228,9 +193,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java" />
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_profile.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java" />
       </list>
     </option>
   </component>
@@ -689,25 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/AutoResizeTextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="7" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="5292">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/SearchFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="28" selection-start="1880" selection-end="5163" vertical-scroll-proportion="0.0" vertical-offset="1481" max-vertical-offset="1944">
-          <folding>
-            <element signature="e#1626#5188#0" expanded="true" />
-            <element signature="e#5177#5178#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="13" selection-start="301" selection-end="301" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1062">
@@ -715,57 +661,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="58" selection-start="5885" selection-end="5885" vertical-scroll-proportion="0.0" vertical-offset="372" max-vertical-offset="990">
-          <folding>
-            <element signature="class#1989:5584" expanded="false" />
-            <element signature="e#5673#6239#0" expanded="true" />
-            <element signature="e#6228#6229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="880" selection-end="880" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="666">
-          <folding>
-            <element signature="e#560#578#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="479" selection-end="479" vertical-scroll-proportion="-5.25" vertical-offset="69" max-vertical-offset="792">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="28" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.0" vertical-offset="564" max-vertical-offset="1908">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2026#3822#0" expanded="true" />
-            <element signature="e#3810#3811#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="144" selection-start="3096" selection-end="3096" vertical-scroll-proportion="0.0" vertical-offset="1342" max-vertical-offset="3780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="0" selection-start="8438" selection-end="8438" vertical-scroll-proportion="0.48199445" vertical-offset="2724" max-vertical-offset="3474">
+        <state line="198" column="0" selection-start="8438" selection-end="8438" vertical-scroll-proportion="0.0" vertical-offset="2724" max-vertical-offset="3474">
           <folding>
             <element signature="e#2132#2315#0" expanded="true" />
             <element signature="e#2300#2301#0" expanded="true" />
@@ -777,6 +675,73 @@
             <element signature="e#8357#8358#0" expanded="true" />
             <element signature="e#8550#9297#0" expanded="true" />
             <element signature="e#9278#9279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="56" selection-start="1554" selection-end="1554" vertical-scroll-proportion="0.0" vertical-offset="683" max-vertical-offset="1908">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2046#3842#0" expanded="true" />
+            <element signature="e#3830#3831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="13" selection-start="805" selection-end="892" vertical-scroll-proportion="0.8476454" vertical-offset="162" max-vertical-offset="666">
+          <folding>
+            <element signature="e#560#578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/FeedFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="0" selection-start="5915" selection-end="5915" vertical-scroll-proportion="1.0138505" vertical-offset="210" max-vertical-offset="990">
+          <folding>
+            <element signature="class#1989:5584" expanded="false" />
+            <element signature="e#5673#6239#0" expanded="true" />
+            <element signature="e#6228#6229#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/DBHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="144" selection-start="3096" selection-end="3096" vertical-scroll-proportion="0.0" vertical-offset="1342" max-vertical-offset="3780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_profile.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="42" selection-start="728" selection-end="728" vertical-scroll-proportion="-8.464286" vertical-offset="69" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/AutoResizeTextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="48" selection-start="412" selection-end="412" vertical-scroll-proportion="-1.4459834" vertical-offset="810" max-vertical-offset="5292">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mobileproto/lab5/SearchFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="28" selection-start="1880" selection-end="5163" vertical-scroll-proportion="0.53462607" vertical-offset="1481" max-vertical-offset="1944">
+          <folding>
+            <element signature="e#1626#5188#0" expanded="true" />
+            <element signature="e#5177#5178#0" expanded="true" />
           </folding>
         </state>
       </provider>
