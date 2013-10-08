@@ -41,12 +41,15 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class FeedActivity extends Activity {
 
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String PREF_USERNAME = "username";
     String username;
+    String tweet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,17 @@ public class FeedActivity extends Activity {
 
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
         username = pref.getString(PREF_USERNAME, null);
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if (tweet != null){
+                    PostTweet(tweet);
+                    tweet = null;
+                }
+            }
+        },0,5000);
 
         if (username == null) {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -128,6 +142,44 @@ public class FeedActivity extends Activity {
         return true;
     }
 
+    public void PostTweet(final String value){
+        new AsyncTask<Void, Void, Void>(){
+            HttpClient client = new DefaultHttpClient();
+            HttpResponse response;
+            Boolean result = false;
+            @Override
+            protected void onPreExecute() {
+                HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000);
+            }
+            protected Void doInBackground(Void... voids){
+                try{
+                    String website = "http://twitterproto.herokuapp.com/"+username+"/tweets";
+                    HttpPost post_tweet = new HttpPost(website);
+                    JSONObject json = new JSONObject();
+                    json.put("status",value);
+                    StringEntity se = new StringEntity(json.toString());
+                    se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+                    post_tweet.setEntity(se);
+                    result = true;
+                    response = client.execute(post_tweet); // fails here
+
+                } catch (Exception e){e.printStackTrace();Log.v("Something Went wRong","somethingWentWrong");}
+
+
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                if (result)
+                    Toast.makeText(getApplicationContext(),"You just tweeted",Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(getApplicationContext(),"You just failed",Toast.LENGTH_LONG).show();
+            }
+        }.execute();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -153,6 +205,10 @@ public class FeedActivity extends Activity {
                 tweet_dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        tweet = tweet_input.getText().toString();
+
+                        tweet_dialog.dismiss();
+                        /*
                         Thread postTweet = new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -176,44 +232,8 @@ public class FeedActivity extends Activity {
 
                             }
                         });
-                        postTweet.start();
-                       /* new AsyncTask<Void, Void, Void>(){
-                            HttpClient client = new DefaultHttpClient();
-                            HttpResponse response;
-                            Boolean result = false;
-                            @Override
-                            protected void onPreExecute() {
-                                HttpConnectionParams.setConnectionTimeout(client.getParams(), 10000);
-                           }
-                            protected Void doInBackground(Void... voids){
-                                try{
-                                Editable value = tweet_input.getText();
+                        postTweet.start();*/
 
-                                String website = "http://twitterproto.herokuapp.com/"+username+"/tweets";
-                                HttpPost post_tweet = new HttpPost(website);
-                                JSONObject json = new JSONObject();
-                                json.put("status",value.toString());
-                                StringEntity se = new StringEntity(json.toString());
-                                se.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
-                                post_tweet.setEntity(se);
-                                    result = true;
-                                response = client.execute(post_tweet); // fails here
-
-                                } catch (Exception e){e.printStackTrace();Log.v("Something Went wRong","somethingWentWrong");}
-                                tweet_dialog.dismiss();
-
-                               return null;
-                           }
-
-                            @Override
-                            protected void onPostExecute(Void aVoid) {
-                                super.onPostExecute(aVoid);
-                                if (result)
-                                Toast.makeText(getApplicationContext(),"You just tweeted",Toast.LENGTH_LONG).show();
-                                else
-                                    Toast.makeText(getApplicationContext(),"You just failed",Toast.LENGTH_LONG).show();
-                            }
-                        }.execute();*/
                     }
                 });
 
